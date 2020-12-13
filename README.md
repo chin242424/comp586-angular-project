@@ -2,6 +2,8 @@
 
 This repository contains only front side of the application
 
+Location of components - comp586-angular-project/bluemoon-angular/src/app/
+
 Authentication is provided by OKTA
 
 Functioning:
