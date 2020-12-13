@@ -1,0 +1,55 @@
+<!--<p>appliance-add works!</p>-->
+<div class="container-fluid">
+  <div class="container xd-container">
+    <h2>
+      Add Appliance
+    </h2>
+    <form class="form-horizontal" (ngSubmit)="onSubmit(applianceForm.value)" #applianceForm="ngForm">
+      <div class="form-group" hidden="true">
+        <input type="text" hidden="true" class="form-control" id="id" [(ngModel)]="appliance.id" name="id"/>
+        <input type="text" hidden="true" class="form-control" id="customer" [(ngModel)]="appliance.customer" name="customer"/>
+      </div>
+      <div class="form-group">
+        <label for="customer" class="col-sm-2 control-label">Customer</label>
+        <div class="col-sm-10">
+          <input id="customer_name" name="customer_name" class="form-control" type="text"
+                 value="{{ currentCustomer.firstName }} {{ currentCustomer.lastName }}" readonly/>
+        </div>
+      </div>
+      <br/>
+      <div class="form-group ">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+          <input id="name" name="name" class="form-control" type="text" [(ngModel)]="appliance.name"/>
+        </div>
+      </div>
+      <div class="form-group ">
+        <label class="col-sm-2 control-label">Purchase Date</label>
+        <div class="col-sm-10">
+          <input matInput [matDatepicker]="purchaseDateDatepicker" [ngModel]="appliance.purchaseDate | date:'yyyy-MM-dd'" name="purchaseDate">
+          <mat-datepicker-toggle matSuffix [for]="purchaseDateDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #purchaseDateDatepicker></mat-datepicker>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="form-group ">
+          <label for="type" class="col-sm-2 control-label">Type </label>
+          <div class="col-sm-10">
+            <select id="type" name="type" class="form-control" [(ngModel)]="appliance.type">
+              <option *ngFor="let type of applianceTypes"
+                      [ngValue]="type">{{ type.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <br/>
+          <button class="btn btn-default" type="button" (click)="gotoCustomerDetail()">< Back</button>
+          <button class="btn btn-default" type="submit">Save Appliance</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

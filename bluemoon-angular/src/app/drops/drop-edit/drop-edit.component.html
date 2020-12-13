@@ -1,0 +1,57 @@
+<!--<p>drop-edit works!</p>-->
+<div class="container-fluid">
+  <div class="container xd-container">
+
+    <h2>Edit Drop</h2>
+
+    <b>Appliance</b>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Purchase Date</th>
+        <th>Type</th>
+        <th>Customer</th>
+      </tr>
+      </thead>
+      <tr>
+        <td>{{ currentAppliance.name }}</td>
+        <td>{{ currentAppliance.purchaseDate }}</td>
+        <td>{{ currentApplianceType.name }}</td>
+        <td>{{ currentCustomer.firstName }} {{ currentCustomer.lastName }}</td>
+      </tr>
+
+    </table>
+
+    <form id="drop" class="form-horizontal" (ngSubmit)="onSubmit(dropForm.value)" #dropForm="ngForm">
+
+      <div class="form-group has-feedback">
+
+        <div class="form-group ">
+          <label class="col-sm-2 control-label">Date</label>
+          <div class="col-sm-10">
+            <input matInput [matDatepicker]="dropDateDatepicker" [ngModel]="drop.date | date:'yyyy-MM-dd'" name="date">
+            <mat-datepicker-toggle matSuffix [for]="dropDateDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #dropDateDatepicker></mat-datepicker>
+          </div>
+        </div>
+        <div class="form-group ">
+          <label class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-10">
+            <input id="description" name="description" class="form-control" type="text"
+                   [(ngModel)]="drop.description"/>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="hidden" name="id" id="id" [(ngModel)]="drop.id"/>
+          <input type="hidden" name="appliance" id="appliance" [(ngModel)]="drop.appliance"/>
+          <button class="btn btn-default" type="button" (click)="gotoCustomerDetail()">Back</button>
+          <button class="btn btn-default" type="submit">Update Drop</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

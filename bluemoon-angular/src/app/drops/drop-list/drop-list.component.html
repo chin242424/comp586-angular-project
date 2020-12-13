@@ -1,0 +1,18 @@
+<!--<p>drop-list works!</p>-->
+<table [hidden]="noDrops" class=" table table-condensed">
+  <thead>
+  <tr>
+    <th>Drop Date</th>
+    <th>Description</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let drop of drops">
+    <td>{{ drop.date }}</td>
+    <td>{{ drop.description }}</td>
+    <td>
+      <button class="btn btn-default" (click)="editDrop(drop)">Edit Drop</button>
+      <button class="btn btn-default" (click)="deleteDrop(drop)">Delete Drop</button>
+    </td>
+  </tr>
+</table>

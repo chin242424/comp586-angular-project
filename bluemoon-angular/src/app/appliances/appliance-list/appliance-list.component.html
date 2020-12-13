@@ -1,0 +1,23 @@
+<!--<p>appliance-list works!</p>-->
+<table [hidden]="deleteSuccess" class="table table-striped">
+  <tr>
+    <td valign="top">
+      <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd>{{ appliance.name }}</dd>
+        <dt>Purchase Date</dt>
+        <dd>{{ appliance.purchaseDate }}</dd>
+        <dt>Type</dt>
+        <dd *ngIf="!deleteSuccess">{{ appliance.type.name }}</dd>
+        <button class="btn btn-default" (click)="editAppliance(appliance)">Edit Appliance</button>
+        <button class="btn btn-default" (click)="deleteAppliance(appliance)">Delete Appliance</button>
+        <button class="btn btn-default" (click)="addDrop(appliance)">Add Drop</button>
+
+      </dl>
+    </td>
+    <td valign="top">
+      <app-drop-list [drops]="appliance.drops"></app-drop-list>
+    </td>
+  </tr>
+
+</table>

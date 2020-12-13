@@ -1,0 +1,42 @@
+<!--<p>customer-detail works!</p>-->
+<div class="container-fluid">
+  <div class="container xd-container">
+
+    <h2>Customer Information</h2>
+
+
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <td><b>{{ customer.firstName }} {{ customer.lastName }}</b></td>
+      </tr>
+      <tr>
+        <th>Address</th>
+        <td>{{ customer.address }}</td>
+      </tr>
+      <tr>
+        <th>City</th>
+        <td>{{ customer.city }}</td>
+      </tr>
+      <tr>
+        <th>Telephone</th>
+        <td>{{ customer.telephone }}</td>
+      </tr>
+    </table>
+
+    <button class="btn btn-default" (click)="gotoCustomersList()">< Back</button>
+    <button class="btn btn-default" (click)="editCustomer()">Edit Customer</button>
+    <button class="btn btn-default" (click)="addAppliance(customer)">Add New Appliance</button>
+
+    <br/>
+    <br/>
+    <br/>
+    <h2>Appliances and Drops</h2>
+
+    <table class="table table-striped">
+      <tr>
+        <app-appliance-list *ngFor="let appliance of customer.appliances" [appliance]="appliance"></app-appliance-list>
+      </tr>
+    </table>
+  </div>
+</div>
