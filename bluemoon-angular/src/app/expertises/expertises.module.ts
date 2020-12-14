@@ -5,13 +5,15 @@ import {ExpertisesRoutingModule} from './expertises-routing.module';
 import {NgModule} from '@angular/core';
 import {ExpertiseService} from './expertise.service';
 import {ExperResolver} from './exper-resolver';
+import {OAuthModule} from 'angular-oauth2-oidc';
 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ExpertisesRoutingModule
+    ExpertisesRoutingModule,
+    OAuthModule.forRoot()
   ],
   declarations: [
     ExpertiseListComponent
